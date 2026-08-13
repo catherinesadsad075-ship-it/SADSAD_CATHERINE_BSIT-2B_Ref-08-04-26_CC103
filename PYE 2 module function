@@ -1,20 +1,17 @@
-Rounding Showdown
-# ---------------------------------------------------------------------
-# Given a NEGATIVE decimal value, print what math.ceil(), math.floor(),
-# and math.trunc() each return. Then, on your own, answer the question
-# in a comment right below your code.
-# =====================================================================
+import math
+
 print("--- Task 3: Rounding Showdown ---")
 value = -7.8
+print(f"ceil -> {math.ceil(value)}")
+print(f"floor -> {math.floor(value)}")
+print(f"trunc -> {math.trunc(value)}")
 
-# TODO: print math.ceil(value) labeled exactly:   "ceil  ->"
-# TODO: print math.floor(value) labeled exactly:  "floor ->"
-# TODO: print math.trunc(value) labeled exactly:  "trunc ->"
-
-
-# TODO: In a comment below, write ONE sentence explaining why floor()
-#       and trunc() give DIFFERENT results for this negative number.
-# Your answer:
-
+#The floor() it rounds the number down to the nearest integer, while the trunc() it removes the decimal part without rounding the number up or down to the nearest integer.
 
 print()
+
+#--- OUTPUT ---
+--- Task 3: Rounding Showdown ---
+ceil -> -7
+floor -> -8
+trunc -> -7
