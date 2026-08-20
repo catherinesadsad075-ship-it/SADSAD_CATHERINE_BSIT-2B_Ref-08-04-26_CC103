@@ -1,0 +1,39 @@
+# SECTION 2: HYPERBOLIC FUNCTIONS
+
+def hyperbolic_menu():
+    print_header("HYPERBOLIC FUNCTIONS")
+    print("""1. Compute sinh, cosh, and tanh of a value
+             2. Compute asinh, acosh, and atanh of a value
+             0. Back to Main Menu
+         """)
+
+    choice = safe_input ("Enter your choice: ").strip()
+
+    if choice == "1":
+        val = get_float("Enter a value: ")
+        print(f"sinh({val}) = {math.sinh(val)}")
+        print(f"cosh({val}) = {math.cosh(val)}")
+        print(f"tanh({val}) = {math.tanh(val)}")
+
+    elif choice == "2":
+        val = get_float("Enter a value: ")
+        print()
+        try:
+            print(f"asinh({val}) = {math.asinh(val)}")
+        except ValueError:
+            print("asinh(x) is defined for all real x. Skipped.")
+        try:
+            print(f"acosh({val}) = {math.acosh(val)}")
+        except ValueError:
+            print("acosh(x) needs x >= 1. Skipped.")
+        try:
+            print(f"atanh({val}) = {math.atanh(val)}")
+        except ValueError:
+            print("atanh(x) needs -1 < x < 1. Skipped.")
+        
+    elif choice == "0":
+        return
+    else:
+        print("\nInvalid choice.")
+    
+    pause()
