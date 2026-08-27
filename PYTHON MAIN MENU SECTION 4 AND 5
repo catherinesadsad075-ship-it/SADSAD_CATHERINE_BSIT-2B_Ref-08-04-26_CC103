@@ -1,0 +1,87 @@
+# SECTION 4: GENERAL-PURPOSE MATH FUNCTIONS
+
+def general_menu():
+    print_header("GENERAL-PURPOSE MATH FUNCTIONS")
+    print("""1. Compute ceil, floor, and trunc of a value
+             2. Compute a factorial
+             3. Compute the hypotenuse of a right triangle
+             0. Back to Main Menu
+         """)
+
+    choice = safe_input("Enter your choice: ").strip()
+    
+    if choice == "1":
+        val = get_float("Enter a floating-point value: ")
+        print("Ceil:", math.ceil(val))
+        print("Floor:", math.floor(val))
+        print("Trunc:", math.trunc(val))
+
+    elif choice == "2":
+        n = get_int("Enter a non-negative integer: ")
+        if n < 0:
+            print("Factorial is not defined for negative numbers.")
+        else:
+            print(f"Factorial of {n} is:", math.factorial(n))
+
+    elif choice == "3":
+        a = get_float("Enter side a: ")
+        b = get_float("Enter side b: ")
+        print("Hypotenuse:", math.hypot(a, b))
+
+    elif choice == "0":
+        return
+    else:
+        print("\nInvalid choice.")
+
+    pause()
+
+
+# SECTION 5: THE RANDOM MODULE
+
+def random_menu():
+    print_header("THE RANDOM MODULE")
+    print("""1. Set a seed (so results can be repeated)
+             2. Generate a number with randrange()
+             3. Generate a number with randint()
+             4. Pick a random item from a list with choice()
+             5. Draw sereval UNIQUE items from a list with sample() (like a lottery)
+             0. Back to Main Menu
+         """)
+
+    choice = safe_input("Enter your choice: ").strip()
+    
+    if choice == "1":
+        seed_val = get_int("Enter a seed value: ")
+        random.seed(seed)
+        print("Seed set successfully.")
+
+    elif choice == "2":
+        start = get_int("Enter start value: ")
+        stop = get_int("Enter stop value: ")
+        print("Random number (randrange):", random.randrange(start, stop))
+    
+    elif choice == "3":
+        start = get_int("Enter start value: ")
+        stop = get_int("Enter stop value: ")
+        print("Random number (randint):", random.randint(start, stop))
+
+    elif choice == "4":
+        items = ["apple", "banana", "cherry", "date", "elderberry", "mango"]
+        print("Random choice from list:", random.choice(items))
+
+    elif choice == "5":
+        items = ["apple", "banana", "cherry", "date", "elderberry", "mango"]
+        k = get_int("How many unique items to draw? ")
+        if k < 0:
+            print("Number of items cannot be negative.")
+        elif k > len(items):
+            print("Cannot draw more items than the list size.")
+        else:
+            print("Random sample:", random.sample(items, k))
+
+    elif choice == "0":
+        return
+    else:
+        print("\nInvalid choice.")
+
+    pause()
